@@ -20,9 +20,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController? email = TextEditingController();
   TextEditingController? password = TextEditingController();
-  TextEditingController? conPass = TextEditingController();
-  TextEditingController? logInEmail = TextEditingController();
-  TextEditingController? logInPass = TextEditingController();
+  
 
   bool isLogin = false;
   bool isLoading = false;
@@ -211,7 +209,7 @@ class _LoginState extends State<Login> {
                               if (email!.text.isNotEmpty &&
                                   password!.text.isNotEmpty) {
                                 isLoading = true;
-                                logInApi(logInEmail!.text, logInPass!.text,
+                                logInApi(email!.text, password!.text,
                                         context, screenWidth, false)
                                     .whenComplete(() => ({
                                           setState(() {

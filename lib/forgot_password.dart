@@ -126,7 +126,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                               if (email!.text.isNotEmpty) {
                                 isLoading = true;
                                 forgotPassword(
-                                        logInEmail!.text, context, screenWidth)
+                                        email!.text, context, screenWidth)
                                     .whenComplete(() {
                                   setState(() {
                                     isLoading = false;

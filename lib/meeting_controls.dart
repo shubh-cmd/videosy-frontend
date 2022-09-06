@@ -3,26 +3,24 @@
 import 'package:flutter/material.dart';
 
 class MeetingControls extends StatefulWidget {
-  final void Function() onToggleMicButtonPressed;
-  final void Function() onToggleCameraButtonPressed;
+  final bool Function() onToggleMicButtonPressed;
+  final bool Function() onToggleCameraButtonPressed;
   final void Function() onLeaveButtonPressed;
-  final bool micEnabled;
-  final bool camEnabled;
-  MeetingControls({
-    Key? key,
-    required this.onToggleMicButtonPressed,
-    required this.onToggleCameraButtonPressed,
-    required this.onLeaveButtonPressed,
-    required this.micEnabled,
-    required this.camEnabled
-  }) : super(key: key);
+  
+  MeetingControls(
+      {Key? key,
+      required this.onToggleMicButtonPressed,
+      required this.onToggleCameraButtonPressed,
+      required this.onLeaveButtonPressed})
+      : super(key: key);
 
   @override
   State<MeetingControls> createState() => _MeetingControlsState();
 }
 
 class _MeetingControlsState extends State<MeetingControls> {
-  
+  bool micEnabled = true;
+  bool camEnabled = true;
   @override
   Widget build(BuildContext context) {
     MediaQueryData _mediaQueryData = MediaQuery.of(context);
@@ -56,19 +54,23 @@ class _MeetingControlsState extends State<MeetingControls> {
                   borderRadius: BorderRadius.all(Radius.circular(50)),
                 ),
                 minimumSize: Size(screenWidth * 0.2, screenHeight * 0.055)),
-            onPressed: widget.onToggleMicButtonPressed,
-            child: (widget.micEnabled) ? 
-            Icon(
-              Icons.mic,
-              color: Colors.red,
-              size: screenWidth * 0.08,
-            )
-            :
-            Icon(
-              Icons.mic_off,
-              color: Colors.red,
-              size: screenWidth * 0.08,
-            ),
+            onPressed: () {
+              bool tmp = widget.onToggleMicButtonPressed();
+              setState(() {
+                micEnabled = tmp;
+              });
+            },
+            child: (micEnabled)
+                ? Icon(
+                    Icons.mic,
+                    color: Colors.red,
+                    size: screenWidth * 0.08,
+                  )
+                : Icon(
+                    Icons.mic_off,
+                    color: Colors.red,
+                    size: screenWidth * 0.08,
+                  ),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -78,19 +80,23 @@ class _MeetingControlsState extends State<MeetingControls> {
                   borderRadius: BorderRadius.all(Radius.circular(50)),
                 ),
                 minimumSize: Size(screenWidth * 0.2, screenHeight * 0.055)),
-                onPressed: widget.onToggleCameraButtonPressed,
-            child: (widget.camEnabled) ?
-            Icon(
-              Icons.videocam,
-              color: Colors.red,
-              size: screenWidth * 0.08,
-            )
-            :
-            Icon(
-              Icons.videocam_off,
-              color: Colors.red,
-              size: screenWidth * 0.08,
-            ),
+            onPressed: () {
+              bool tmp = widget.onToggleCameraButtonPressed();
+              setState(() {
+                camEnabled = tmp;
+              });
+            },
+            child: (camEnabled)
+                ? Icon(
+                    Icons.videocam,
+                    color: Colors.red,
+                    size: screenWidth * 0.08,
+                  )
+                : Icon(
+                    Icons.videocam_off,
+                    color: Colors.red,
+                    size: screenWidth * 0.08,
+                  ),
           ),
         ],
       ),

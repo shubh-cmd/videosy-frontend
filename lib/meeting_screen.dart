@@ -115,14 +115,14 @@ class _MeetingScreenState extends State<MeetingScreen> {
             onToggleMicButtonPressed: () {
               micEnabled ? room.muteMic() : room.unmuteMic();
               micEnabled = !micEnabled;
+              return micEnabled;
             },
             onToggleCameraButtonPressed: () {
               camEnabled ? room.disableCam() : room.enableCam();
               camEnabled = !camEnabled;
+              return camEnabled;
             },
             onLeaveButtonPressed: () => room.leave(),
-            micEnabled: micEnabled,
-            camEnabled: camEnabled,
           ),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -133,7 +133,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
                   ),
                   minimumSize: Size(screenWidth * 0.2, screenHeight * 0.055)),
               onPressed: () async {
-                await Share.share("${room.id}",subject: "Videosy");
+                await Share.share("${room.id}", subject: "Videosy");
               },
               child: Icon(
                 Icons.share,

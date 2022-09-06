@@ -242,7 +242,8 @@ Future<dynamic> forgotPassword(String email, context, screenWidth) async {
         "email": email,
       }),
     );
-
+    print("*******************");
+    print(email);
     var responseJson = json.decode(response.body);
     print(responseJson);
 
