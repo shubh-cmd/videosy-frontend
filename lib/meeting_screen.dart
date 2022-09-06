@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:videosdk/videosdk.dart';
 import 'meeting_controls.dart';
 import 'participant_tile.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter_share/flutter_share.dart';
 
 class MeetingScreen extends StatefulWidget {
   final String meetingId;
@@ -84,14 +84,6 @@ class _MeetingScreenState extends State<MeetingScreen> {
     room.join();
   }
 
-  // final _controller = ScreenshotController();
-
-  // Future<void> share() async {
-  //   await FlutterShare.share(
-  //       title: 'Example share',
-  //       text: 'Meeting ID : ${room.id}');
-  // }
-
   @override
   Widget build(BuildContext context) {
     MediaQueryData _mediaQueryData = MediaQuery.of(context);
@@ -140,7 +132,9 @@ class _MeetingScreenState extends State<MeetingScreen> {
                     borderRadius: BorderRadius.all(Radius.circular(50)),
                   ),
                   minimumSize: Size(screenWidth * 0.2, screenHeight * 0.055)),
-              onPressed: (){},
+              onPressed: () async {
+                await Share.share("${room.id}",subject: "Videosy");
+              },
               child: Icon(
                 Icons.share,
                 color: Colors.red,

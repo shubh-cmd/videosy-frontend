@@ -10,10 +10,11 @@ GoogleSignIn _googleSignIn = GoogleSignIn(
   ],
 );
 
-
-Future< GoogleSignInAccount?> handleSignIn() async {
+Future<GoogleSignInAccount?> handleSignIn() async {
   try {
-    GoogleSignInAccount? account= await _googleSignIn.signIn();
+    GoogleSignInAccount? account = await _googleSignIn.signIn();
+    print("*****************");
+    print(account!.email);
     return account;
   } catch (error) {
     print(error);

@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "276393410352",
+    "project_id": "videosy-8b620",
+    "storage_bucket": "videosy-8b620.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276393410352:android:0e3e64a281fb91698bd2f5",
+        "android_client_info": {
+          "package_name": "com.example.videosy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276393410352-r64miq1kf25agvig0eghmt9j2tjnr2q6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.videosy",
+            "certificate_hash": "57f2c049837eb8e20199b14db56f819c8fdda62b"
+          }
+        },
+        {
+          "client_id": "276393410352-ps8iv1tsjeit3kqh9tp1ui923vf72op4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSo0_-6EH9-nVX71OQAvai1zbx3ZVhsSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276393410352-ps8iv1tsjeit3kqh9tp1ui923vf72op4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "276393410352-jbclquosqkv26n596e9urfa0cnev2k05.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.videosy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

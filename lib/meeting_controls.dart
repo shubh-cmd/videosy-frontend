@@ -57,13 +57,14 @@ class _MeetingControlsState extends State<MeetingControls> {
                 ),
                 minimumSize: Size(screenWidth * 0.2, screenHeight * 0.055)),
             onPressed: widget.onToggleMicButtonPressed,
-            child: (widget.micEnabled)? 
+            child: (widget.micEnabled) ? 
             Icon(
               Icons.mic,
               color: Colors.red,
               size: screenWidth * 0.08,
             )
-            :Icon(
+            :
+            Icon(
               Icons.mic_off,
               color: Colors.red,
               size: screenWidth * 0.08,
@@ -78,12 +79,6 @@ class _MeetingControlsState extends State<MeetingControls> {
                 ),
                 minimumSize: Size(screenWidth * 0.2, screenHeight * 0.055)),
                 onPressed: widget.onToggleCameraButtonPressed,
-            // onPressed: () {
-            //   widget.onToggleCameraButtonPressed;
-            //   setState(() {
-            //     camEnabled = !camEnabled;
-            //   });
-            // },
             child: (widget.camEnabled) ?
             Icon(
               Icons.videocam,

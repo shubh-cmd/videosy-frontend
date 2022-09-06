@@ -210,8 +210,14 @@ class _LoginState extends State<Login> {
                               onPressSignIn = false;
                               if (email!.text.isNotEmpty &&
                                   password!.text.isNotEmpty) {
-                                logInApi(email!.text, password!.text, context,
-                                    screenWidth, false);
+                                isLoading = true;
+                                logInApi(logInEmail!.text, logInPass!.text,
+                                        context, screenWidth, false)
+                                    .whenComplete(() => ({
+                                          setState(() {
+                                            isLoading = false;
+                                          })
+                                        }));
                               } else {
                                 toast(screenWidth, "Fill Each details");
                               }

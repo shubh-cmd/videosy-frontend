@@ -21,28 +21,25 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Container(
-          child: isMeetingActive
-                ? MeetingScreen(
-                    meetingId: meetingId,
-                    token: token,
-                    leaveMeeting: () {
-                      setState(() => isMeetingActive = false);
-                    },
-                  )
-                : JoinScreen(
-                    onMeetingIdChanged: (value) => meetingId = value,
-                    onCreateMeetingButtonPressed: () async {
-                      meetingId = await createMeeting();
-                      setState(() => isMeetingActive = true);
-                    },
-                    onJoinMeetingButtonPressed: () {
-                      setState(() => isMeetingActive = true);
-                    },
-                  ),
-        ),
+      body: Container(
+        child: isMeetingActive
+              ? MeetingScreen(
+                  meetingId: meetingId,
+                  token: token,
+                  leaveMeeting: () {
+                    setState(() => isMeetingActive = false);
+                  },
+                )
+              : JoinScreen(
+                  onMeetingIdChanged: (value) => meetingId = value,
+                  onCreateMeetingButtonPressed: () async {
+                    meetingId = await createMeeting();
+                    setState(() => isMeetingActive = true);
+                  },
+                  onJoinMeetingButtonPressed: () {
+                    setState(() => isMeetingActive = true);
+                  },
+                ),
       ),
     );
   }

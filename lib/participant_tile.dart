@@ -15,6 +15,7 @@ class ParticipantTile extends StatelessWidget {
         height: 200,
         width: 200,
         child: RTCVideoView(
+          mirror: true,
           stream.renderer!,
           objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
         ),
