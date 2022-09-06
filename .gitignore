@@ -48,4 +48,3 @@ app.*.map.json
 
 key.properties
 app/upload-keystore.jks
-app/google-services.json
